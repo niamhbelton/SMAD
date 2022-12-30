@@ -2,6 +2,9 @@
 
 This is the official repository for Siamese Network for Artifact Motion Detection (SMAD).
 
+Please download the data from the following link;
+https://openneuro.org/datasets/ds004173/versions/1.0.2
+
 The code takes the following arguments;
 ```
 def parse_arguments():
