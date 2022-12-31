@@ -382,6 +382,10 @@ def train(model, train_dataset, epochs, criterion, model_name, indexes):
         pd.DataFrame(avg_losses).to_csv('./outputs/losses_' + model_name)
         torch.save(model, './outputs/' + model_name)
 
+    if evaluate_epoch != 1:
+            out_name = args.output_name + '_epoch_' + str(epoch)
+            evaluate(model, out_name, args.N, args.data_path, epoch,True)
+
     pd.DataFrame(avg_losses).to_csv('./outputs/losses_' + model_name)
     print("Finished Training")
 
@@ -413,4 +417,4 @@ if __name__ == '__main__':
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=0.1)
     criterion = ContrastiveLoss()
     train(model, train_dataset, args.epochs, criterion, args.model_name, train_dataset.indexes)
-    evaluate(model, args.output_name, args.N, args.data_path, epoch, True)
+  #  evaluate(model, args.output_name, args.N, args.data_path, epoch, True)
